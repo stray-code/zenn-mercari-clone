@@ -4,9 +4,15 @@ import { ProductsMaster } from '../types';
 
 type Props = {
   product: ProductsMaster['products'][number];
+  favoriteCodes: string[];
+  changeFavorite: (productId: string) => void;
 };
 
-export const ProductItem = ({ product }: Props) => {
+export const ProductItem = ({
+  product,
+  favoriteCodes,
+  changeFavorite,
+}: Props) => {
   return (
     <a href="/" className="group flex h-full flex-col gap-2">
       <div className="relative">
@@ -23,9 +29,23 @@ export const ProductItem = ({ product }: Props) => {
         <button
           type="button"
           // aタグのホバーでボタンを表示
-          className="invisible absolute bottom-2 right-2 flex items-center justify-center rounded-full bg-white p-2 lg:group-hover:visible"
+          className={`invisible absolute bottom-2 right-2 flex items-center justify-center rounded-full bg-white p-2 lg:group-hover:visible ${
+            favoriteCodes.includes(product.code) ? 'lg:visible' : ''
+          }`}
+          onClick={(e) => {
+            // aタグのクリックを無効化
+            e.preventDefault();
+
+            changeFavorite(product.code);
+          }}
         >
-          <Heart className="size-[20px] stroke-2" />
+          <Heart
+            className={`size-[20px] ${
+              favoriteCodes.includes(product.code)
+                ? 'fill-red-500 stroke-0'
+                : 'stroke-2'
+            }`}
+          />
         </button>
       </div>
       <span className="hidden text-sm lg:line-clamp-2">{product.name}</span>

@@ -4,9 +4,15 @@ import { ProductsMaster } from '../types';
 
 type Props = {
   productsMaster: ProductsMaster;
+  favoriteCodes: string[];
+  changeFavorite: (productId: string) => void;
 };
 
-export const Products = ({ productsMaster }: Props) => {
+export const Products = ({
+  productsMaster,
+  favoriteCodes,
+  changeFavorite,
+}: Props) => {
   return (
     <section className="space-y-6 border-t border-secondary-border py-6">
       <ProductsHeader productsMaster={productsMaster} />
@@ -20,7 +26,11 @@ export const Products = ({ productsMaster }: Props) => {
             // ウィンドウの横幅によって列数が変わるため、2行になるように表示する商品数を変える
             className="hidden lg:[&:nth-child(-n+10)]:block [&:nth-child(-n+6)]:block sm:[&:nth-child(-n+8)]:block"
           >
-            <ProductItem product={product} />
+            <ProductItem
+              product={product}
+              favoriteCodes={favoriteCodes}
+              changeFavorite={changeFavorite}
+            />
           </li>
         ))}
       </ul>
