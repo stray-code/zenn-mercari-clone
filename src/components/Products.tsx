@@ -1,3 +1,5 @@
+import { ProductsHeader } from './';
+
 import { ProductsMaster } from '../types';
 
 type Props = {
@@ -7,7 +9,7 @@ type Props = {
 export const Products = ({ productsMaster }: Props) => {
   return (
     <section className="space-y-6 border-t border-secondary-border py-6">
-      {productsMaster.keyword}
+      <ProductsHeader productsMaster={productsMaster} />
       <ul
         // ウィンドウの横幅によって列数を変える
         className="grid grid-cols-[repeat(3,1fr)] gap-1 sm:grid-cols-[repeat(4,1fr)] lg:grid-cols-[repeat(5,1fr)] lg:gap-6"
