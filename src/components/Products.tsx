@@ -1,4 +1,4 @@
-import { ProductsHeader } from './';
+import { ProductItem, ProductsHeader } from './';
 
 import { ProductsMaster } from '../types';
 
@@ -20,8 +20,7 @@ export const Products = ({ productsMaster }: Props) => {
             // ウィンドウの横幅によって列数が変わるため、2行になるように表示する商品数を変える
             className="hidden lg:[&:nth-child(-n+10)]:block [&:nth-child(-n+6)]:block sm:[&:nth-child(-n+8)]:block"
           >
-            <img src={product.imageUrl} />
-            {product.name}
+            <ProductItem product={product} />
           </li>
         ))}
       </ul>
