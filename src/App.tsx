@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { PageFooter, PageHeader, PageNavigation } from './layouts';
 import { Categories, Products } from './components';
 
-import { sneakersProductsMaster, favorites } from './data';
+import {
+  sneakersProductsMaster,
+  favorites,
+  earringsProductsMaster,
+} from './data';
 
 export default function App() {
   const [favoriteCodes, setFavoriteCodes] = useState(favorites);
@@ -28,6 +32,11 @@ export default function App() {
         </h2>
         <Products
           productsMaster={sneakersProductsMaster}
+          favoriteCodes={favoriteCodes}
+          changeFavorite={changeFavorite}
+        />
+        <Products
+          productsMaster={earringsProductsMaster}
           favoriteCodes={favoriteCodes}
           changeFavorite={changeFavorite}
         />
