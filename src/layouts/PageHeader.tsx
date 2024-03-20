@@ -1,3 +1,5 @@
+import { Search } from 'lucide-react';
+
 import logo from '../assets/logo.png';
 
 export const PageHeader = () => {
@@ -8,7 +10,21 @@ export const PageHeader = () => {
           <img src={logo} className="h-[50px]" />
         </a>
       </div>
-      <div className="hidden md:block">検索フォーム</div>
+      <form className="hidden grow md:block">
+        <div className="flex max-w-[560px] overflow-hidden rounded border border-secondary-border has-[:focus]:border-gray-800">
+          <input
+            type="text"
+            placeholder="なにをお探しですか？"
+            className="w-full bg-neutral-100 pl-4 pr-1 outline-none focus:border-blue-500"
+          />
+          <button
+            type="button"
+            className="bg-gray-100 p-[8px] hover:bg-gray-200"
+          >
+            <Search className="size-[18px] stroke-2" />
+          </button>
+        </div>
+      </form>
       <div className="ml-auto">ボタン</div>
     </div>
   );
