@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { PageFooter, PageHeader, PageNavigation } from './layouts';
 import { Categories, Products } from './components';
 
@@ -9,16 +7,10 @@ import {
   earringsProductsMaster,
 } from './data';
 
-export default function App() {
-  const [favoriteCodes, setFavoriteCodes] = useState(favorites);
+import { useFavorite } from './hooks/useFavorite';
 
-  const changeFavorite = (productCode: string) => {
-    setFavoriteCodes((prevFavoriteCodes) => {
-      return prevFavoriteCodes.includes(productCode)
-        ? prevFavoriteCodes.filter((code) => code !== productCode)
-        : [...prevFavoriteCodes, productCode];
-    });
-  };
+export default function App() {
+  const { favoriteCodes, changeFavorite } = useFavorite(favorites);
 
   return (
     <div>
