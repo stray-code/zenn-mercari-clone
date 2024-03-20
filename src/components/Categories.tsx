@@ -12,7 +12,11 @@ export const Categories = () => {
             <a
               key={index}
               href={menu.link}
-              className="relative whitespace-nowrap px-6 py-3 text-sm font-bold text-secondary-text hover:bg-secondary-hover"
+              className={`relative whitespace-nowrap px-6 py-3 text-sm font-bold hover:bg-secondary-hover ${
+                index === 0
+                  ? 'text-red-500 before:absolute before:bottom-0 before:left-0 before:h-[3px] before:w-full before:bg-red-500'
+                  : 'text-secondary-text'
+              }`}
             >
               {menu.label}
             </a>
