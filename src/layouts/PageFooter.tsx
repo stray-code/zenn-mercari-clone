@@ -1,13 +1,17 @@
 import { Bird, Book } from 'lucide-react';
 
 import { aboutMenus, helpMenus, termsMenus } from '../constants';
-import { FooterMenus } from './';
+import { FooterMenusSP, FooterMenus } from './';
 
 export const PageFooter = () => {
   return (
     <footer className="bg-neutral-100">
       <div className="py-10">
-        <div className="space-y-8 px-5 lg:hidden">スマホサイズのメニュー</div>
+        <div className="space-y-8 px-5 lg:hidden">
+          <FooterMenusSP heading="カリカリについて" menus={aboutMenus} />
+          <FooterMenusSP heading="ヘルプ" menus={helpMenus} />
+          <FooterMenusSP heading="プライバシーと利用規約" menus={termsMenus} />
+        </div>
         <div className="hidden gap-5 px-10 lg:flex">
           <FooterMenus heading="カリカリについて" menus={aboutMenus} />
           <FooterMenus heading="ヘルプ" menus={helpMenus} />
