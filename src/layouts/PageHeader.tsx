@@ -1,4 +1,4 @@
-import { Search } from 'lucide-react';
+import { Bell, Check, Heart, Search, User } from 'lucide-react';
 
 import logo from '../assets/logo.png';
 
@@ -25,7 +25,42 @@ export const PageHeader = () => {
           </button>
         </div>
       </form>
-      <div className="ml-auto">ボタン</div>
+      <div className="ml-auto flex shrink-0 items-center md:gap-2">
+        <button
+          type="button"
+          className="p-2 hover:bg-secondary-hover md:hidden"
+        >
+          <Search className="size-[22px] stroke-2" />
+        </button>
+        <button
+          type="button"
+          className="hidden gap-1 p-2 hover:bg-secondary-hover md:flex"
+        >
+          <User className="size-[22px] stroke-2" />
+          たろう
+        </button>
+        <button
+          type="button"
+          className="hidden p-2 hover:bg-secondary-hover md:flex"
+        >
+          <Heart className="size-[22px] stroke-2" />
+        </button>
+        <button
+          type="button"
+          className="hidden p-2 hover:bg-secondary-hover md:flex"
+        >
+          <Bell className="size-[22px] stroke-2" />
+        </button>
+        <button type="button">
+          <Check className="size-[22px] stroke-2" />
+        </button>
+        <button
+          type="button"
+          className="hidden rounded bg-red-500 px-4 py-2 text-sm font-bold text-white hover:bg-red-400 md:block"
+        >
+          出品
+        </button>
+      </div>
     </div>
   );
 };
